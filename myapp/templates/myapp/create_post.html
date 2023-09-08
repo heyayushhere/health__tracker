@@ -1,0 +1,24 @@
+<!-- posts/templates/posts/create_post.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create a Post</title>
+</head>
+<body>
+    <h1>Create a Post</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="prompt">Enter your prompt here:</label><br>
+        <textarea name="prompt" rows="4" cols="50" id="prompt" placeholder="E.g., 'Write a short story about a cat and a dog...'" required></textarea><br>
+        <button type="submit">Generate & Create Post</button>
+    </form>
+
+    {% if generated_content %}
+    <h2>Generated Content:</h2>
+    <p>{{ generated_content }}</p>
+    {% endif %}
+    
+    <a href="{% url 'post_list' %}">Back to Post List</a>
+</body>
+</html>

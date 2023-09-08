@@ -1,0 +1,75 @@
+{% extends 'base2.html' %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block content %}
+<section id="services" class="services section-bg" style="margin-top: 100px;">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="section-title" data-aos="fade-right">
+          <h2>Our Goal</h2>
+          <p>Our all-in-one platform cares for your well-being, managing your health profile, sleep cycle, workout
+            routines, and calorie burn for a balanced lifestyle.</p>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="row">
+          <div class="col-md-6 d-flex align-items-stretch">
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
+              <div class="icon"><i class="bi bi-heart-pulse"></i></div>
+              <h4><a href="{% url 'generate-report' %}">Health Profile</a></h4>
+              <p>Introducing your personalized health profile – a comprehensive snapshot of your well-being journey.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 d-flex align-items-stretch">
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="400">
+              <div class="icon"><i class="bi bi-chat-heart"></i></div>
+              <h4><a href="{% url 'chatbot_view' %}">DR. AI</a></h4>
+              <p>Empower your health journey with our AI chatbot aka DR. AI, your 24/7 source of personalized health
+                insights.</p>
+            </div>
+          </div>
+          <div class="col-md-6 d-flex align-items-stretch mt-4">
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="400">
+              <div class="icon"><i class="bi bi-droplet-half"></i></div>
+              <h4><a href="{% url 'aqualog' %}">Aqua-Log</a></h4>
+              <p>Elevate your wellness with Aqua-Log, the effortless way to track and boost your daily hydration.</p>
+            </div>
+          </div>
+          <div class="col-md-6 d-flex align-items-stretch mt-4">
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
+              <div class="icon"><i class="bi bi-clipboard2-heart"></i></div>
+              <h4><a href="{% url 'index' %}">Calorie Tracking</a></h4>
+              <p>Effortlessly monitor your calorie intake and expenditure with our intuitive tracking system.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 d-flex align-items-stretch mt-4">
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="300">
+              <div class="icon"><i class="bi bi-fire"></i></div>
+              <h4><a href="{% url 'workout' %}">Workout</a></h4>
+              <p>Elevate your fitness game with insights into your workouts and calories burned.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 d-flex align-items-stretch mt-4">
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="400">
+              <div class="icon"><i class="bi bi-bar-chart-line"></i></div>
+              <h4><a href="{% url 'view_sleep_patterns' %}">Sleep Cycle</a></h4>
+              <p>Visualize your sleep cycle patterns with our informative and user-friendly graph.</p>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+{% endblock %}

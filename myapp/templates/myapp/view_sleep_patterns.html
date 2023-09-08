@@ -1,0 +1,94 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center " style="margin-top: 100px ;" >
+    <div class="card p-4" style="width: 40%;">
+        <h2 class="text-center mb-4">Your Sleep Patterns</h2>
+        <ul class="list-unstyled">
+            {% for sleep_pattern in sleep_patterns %}
+                <li class="mb-3">
+                    <strong>Start Time:</strong> {{ sleep_pattern.start_time }}<br>
+                    <strong>End Time:</strong> {{ sleep_pattern.end_time }}<br>
+                    <strong>Quality Rating:</strong> {{ sleep_pattern.get_quality_rating_display }}
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'add_sleep_pattern' %}" class="btn btn-primary btn-block" style="background-color: rgb(101, 26, 172);">Add Sleep Pattern</a>
+        <h3 style="margin: 5px;">Get AI generated Suggestion</h3>
+        <a href="{% url 'suggest_sleep_cycle' %}" class="btn btn-primary btn-block" style="background-color: rgb(101, 26, 172);">Sleep Suggestion</a>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<canvas id="sleep-quality-chart" width="400" height="200"></canvas>
+<script>
+    // Sleep pattern data (replace with your data)
+    var sleepPatternData = [
+    {% for pattern in sleep_patterns %}
+        {
+            'start_time': "{{ pattern.start_time|date:'Y-m-d H:i' }}",
+            'end_time': "{{ pattern.end_time|date:'Y-m-d H:i' }}",
+            'quality': "{{ pattern.get_quality_rating_display }}",
+        },
+    {% endfor %}
+];
+
+// Create arrays to hold x and y data
+// Create arrays to hold x and y data
+var sleepDurations = sleepPatternData.map(function(item) {
+            var startTime = new Date(item.start_time);
+            var endTime = new Date(item.end_time);
+            var durationInMilliseconds = endTime - startTime;
+            var durationInHours = durationInMilliseconds / (1000 * 60 * 60); // Convert to hours
+            return durationInHours;
+        });
+
+        // Get the canvas element
+        var ctx = document.getElementById('sleep-quality-chart').getContext('2d');
+
+        // Create the bar chart using Chart.js
+        var chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: sleepPatternData.map(function(item) {
+                    return item.start_time;
+                }),
+                datasets: [{
+                    label: 'Hours Slept',
+                    data: sleepDurations,
+                    backgroundColor: [
+                        'rgba(0, 128, 0, 0.7)',   // Excellent (Green)
+                        'rgba(255, 255, 0, 0.7)', // Very Good (Yellow)
+                        'rgba(255, 165, 0, 0.7)'  // Good (Orange)
+                        // Add more colors for other qualities
+                    ],
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Sleep Patterns',
+                    fontSize: 18
+                },
+                scales: {
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Sleep Time'
+                        }
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Hours Slept'
+                        },
+                        ticks: {
+                            beginAtZero: true,
+                            stepSize: 1,
+                        }
+                    }]
+                }
+            }
+        });
+</script>
+
+{% endblock %}

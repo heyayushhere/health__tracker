@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Tracker</title>
+</head>
+<body>
+    <header>
+        <h1>Health Tracker</h1>
+        <nav>
+            <ul>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Health Tracker</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,196 @@
+body {
+  background-color: #f6fbf4;
+}
+
+.logo {
+  width: 13em;
+  height: 63px;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h1 strong {
+  font-weight: 600;
+  color: #4b8673;
+}
+
+.inputstyle {
+  padding: 20px !important;
+}
+
+.whoop {
+  background-color: #5fd068;
+  width: 8em;
+  font-size: 30px !important;
+  color: #ffffff;
+}
+
+.caloriescont {
+  background-color: #ffffff;
+  padding: 30px;
+}
+
+.caloriescont ul {
+  padding: 0px;
+}
+
+.caloriescont ul li {
+  list-style: none;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #efefef;
+  width: 80%;
+}
+
+.caloriescont h3 {
+  color: #4b8673;
+  font-size: 2em;
+  text-transform: capitalize;
+  font-weight: 700;
+}
+
+.caloriescont h5 {
+  color: #4b8673;
+}
+
+.servingsize {
+  background-color: #000000;
+  padding: 10px;
+  color: #ffffff;
+}
+/* Reset default styles */
+body, h1, table, th, td {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.activity-table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.table-heading, .activity-data {
+  padding: 10px;
+  text-align: center;
+}
+
+.activity-image img {
+  display: block;
+  margin: 0 auto;
+}
+
+.activity-name {
+  font-weight: bold;
+  color: #333;
+}
+
+@media screen and (max-width: 600px) {
+  .activity-table {
+      box-shadow: none;
+  }
+
+  .table-heading, .activity-data {
+      padding: 5px;
+  }
+}
+
+h1{
+  display: flex;
+  justify-content: center;
+}
+#chat-form {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.container-form {
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 20px 0;
+width: calc(100% - 8rem);
+}
+
+.centered-textarea {
+flex: 1;
+padding: 10px;
+font-size: 16px;
+border: 1px solid #ccc;
+border-radius: 5px;
+height: 50px;
+margin-right: 5px;
+}
+
+.centered-textarea::placeholder {
+color: #999;
+}
+
+.container-form input[type="submit"] {
+flex-shrink: 0;
+background: rgb(101, 26, 172);
+color: #fff;
+border: none;
+padding: 8px 16px;
+font-size: 14px;
+cursor: pointer;
+border-radius: 5px;
+transition: background-color 0.3s ease;
+height: 50px;
+}
+
+.container-form input[type="submit"]:hover {
+background-color: rgb(120, 35, 190);
+}
+
+/* Adjust the conversation container height and scrolling */
+#conversation {
+height: 500px;
+border: 1px solid rgb(69, 38, 99);
+margin-bottom: 10px;
+overflow-y: scroll;
+margin: 20px 4rem;
+background-color: rgb(36 12 58);
+width: calc(100% - 8rem);
+}
+
+/* Customize user and chatbot messages */
+.user-messages, .chatbot-messages {
+width: 100%;
+padding: 10px;
+font-size: larger;
+font-family: "Raleway", sans-serif;
+border-radius: 5px;
+margin-bottom: 10px;
+}
+
+.user-messages {
+background: rgb(83 38 128);
+color: #fff;
+}
+
+.chatbot-messages {
+background: rgb(46 23 67);
+color: #fff;
+}
